@@ -1,4 +1,4 @@
-package com.epam.cdp;
+package com.epam.cdp.testng;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.AfterClass;
