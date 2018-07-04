@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class PowTest extends BasicTest {
+public class PowTest extends BaseTestNG {
     @Parameters({"first, second, expected"})
     @Test(dataProvider = "valuesForPow")
     public void firstPowSecond(double first, double second, double expected) {

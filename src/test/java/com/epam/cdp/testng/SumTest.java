@@ -5,12 +5,12 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class SumTest extends BasicTest {
+public class SumTest extends BaseTestNG {
 
     @Test(groups = "Traning")
-    public void onePlusTwo(){
-        long result = calc.sum(1,2);
-        Assert.assertEquals(result,3, "invalid result sum");
+    public void onePlusTwo() {
+        long result = calc.sum(1, 2);
+        Assert.assertEquals(result, 3, "invalid result sum");
     }
 
 
@@ -22,15 +22,14 @@ public class SumTest extends BasicTest {
     }
 
     @DataProvider(name = "valuesForSumTest")
-    public Object[][] dataForSum (){
+    public Object[][] dataForSum() {
         return new Object[][]{
-                {1,2,3},
-                {0,0,0},
-                {-1,1,0},
-                {1,-10,-9}
+                {1, 2, 3},
+                {0, 0, 0},
+                {-1, 1, 0},
+                {1, -10, -9}
         };
     }
-
 
 
 }

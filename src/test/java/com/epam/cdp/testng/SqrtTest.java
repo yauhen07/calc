@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class SqrtTest extends BasicTest {
+public class SqrtTest extends BaseTestNG {
 
 
     @Parameters({"first, expected"})

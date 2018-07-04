@@ -5,9 +5,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class DivTest extends BasicTest {
+public class DivTest extends BaseTestNG {
 
-    @Test(expectedExceptions = NumberFormatException.class)
+    @Test(expectedExceptions = Exception.class)
     public void divZero() {
         long result = calc.div(1, 0);
 
