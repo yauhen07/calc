@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class MultTest extends BaseTestNG {
 
-    @Test(groups = "Traning")
+    @Test(groups = "Training")
     public void zeroMultOne() {
         long result = calc.mult(0, 1);
         Assert.assertEquals(result, 0, "multiply by 0");

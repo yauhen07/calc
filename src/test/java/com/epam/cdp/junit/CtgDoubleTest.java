@@ -14,6 +14,11 @@ public class CtgDoubleTest extends BaseTestJunit {
     private double first;
     private double expected;
 
+    public CtgDoubleTest(double first, double expected) {
+        this.first = first;
+        this.expected = expected;
+    }
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
@@ -24,16 +29,10 @@ public class CtgDoubleTest extends BaseTestJunit {
 
         });
     }
-
-    public CtgDoubleTest(double first, double expected) {
-        this.first = first;
-        this.expected = expected;
-    }
-
+    //method has defect: incorrect calculation of Ctg
     @Test
-    public void FirstCtgDouble() {
-        double result = calc.ctg(first);
-        assertEquals(expected, result, 0.00005);
-
+    public void firstCtgDouble() {
+        double result = calc.ctg(Math.toRadians(first));
+        assertEquals("incorrect result Ctg", expected, result, 0.00005);
     }
 }

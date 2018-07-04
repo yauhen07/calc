@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class SumTest extends BaseTestNG {
 
-    @Test(groups = "Traning")
+    @Test(groups = "Training")
     public void onePlusTwo() {
         long result = calc.sum(1, 2);
         Assert.assertEquals(result, 3, "invalid result sum");

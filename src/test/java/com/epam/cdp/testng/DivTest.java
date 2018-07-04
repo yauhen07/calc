@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class DivTest extends BaseTestNG {
 
-    @Test(expectedExceptions = Exception.class)
+    @Test(expectedExceptions = NumberFormatException.class)
     public void divZero() {
         long result = calc.div(1, 0);
 

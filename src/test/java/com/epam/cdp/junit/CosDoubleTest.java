@@ -14,6 +14,12 @@ public class CosDoubleTest extends BaseTestJunit {
     private double first;
     private double expected;
 
+    public CosDoubleTest(double first, double expected) {
+        this.first = first;
+        this.expected = expected;
+    }
+
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
@@ -23,16 +29,11 @@ public class CosDoubleTest extends BaseTestJunit {
                 {90.0, 0.0}
         });
     }
-
-    public CosDoubleTest(double first, double expected) {
-        this.first = first;
-        this.expected = expected;
-    }
-
+    //method has defect: Math.sin() method used to calculate Cos value
     @Test
-    public void FirstCosDouble() {
-        double result = calc.cos(first);
-        assertEquals(expected, result, 0.00005);
+    public void firstCosDouble() {
+        double result = calc.cos(Math.toRadians(first));
+        assertEquals("incorrect result Cos", expected, result, 0.005);
 
     }
 }

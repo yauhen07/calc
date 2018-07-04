@@ -15,6 +15,12 @@ public class MultDoubleTest extends BaseTestJunit {
     private double second;
     private double expected;
 
+    public MultDoubleTest(double first, double second, double expected) {
+        this.first = first;
+        this.second = second;
+        this.expected = expected;
+    }
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
@@ -24,22 +30,15 @@ public class MultDoubleTest extends BaseTestJunit {
                 {-0.5, 0.2, -0.1},
                 {-0.5, -0.2, 0.1},
                 {-0.0, 0.0, 0.0},
-                {0.1, 0.2, 0.2},
+                {0.1, 0.2, 0.2}
 
         });
     }
-
-    public MultDoubleTest(double first, double second, double expected) {
-        this.first = first;
-        this.second = second;
-        this.expected = expected;
-    }
-
-
+    //method has defect: rounding is applied to result of multiplying, no rounding should applied
     @Test
-    public void FirstMultSecondDouble() {
+    public void firstMultSecondDouble() {
         double result = calc.mult(first, second);
-        assertEquals(expected, result, 0.00005);
+        assertEquals("incorrect result Mult", expected, result, 0.00005);
     }
 
 

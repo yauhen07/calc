@@ -15,6 +15,12 @@ public class SumDoubleTest extends BaseTestJunit {
     private double second;
     private double expected;
 
+    public SumDoubleTest(double first, double second, double expected) {
+        this.first = first;
+        this.second = second;
+        this.expected = expected;
+    }
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
@@ -29,17 +35,10 @@ public class SumDoubleTest extends BaseTestJunit {
         });
     }
 
-    public SumDoubleTest(double first, double second, double expected) {
-        this.first = first;
-        this.second = second;
-        this.expected = expected;
-    }
-
-
     @Test
-    public void FirstPlusSecondDouble() {
+    public void firstPlusSecondDouble() {
         double result = calc.sum(first, second);
-        assertEquals(expected, result, 0.00005);
+        assertEquals("incorrect result Sum", expected, result, 0.00005);
     }
 
 

@@ -15,6 +15,12 @@ public class DivDoubleTest extends BaseTestJunit {
     private double second;
     private double expected;
 
+    public DivDoubleTest(double first, double second, double expected) {
+        this.first = first;
+        this.second = second;
+        this.expected = expected;
+    }
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
@@ -27,16 +33,10 @@ public class DivDoubleTest extends BaseTestJunit {
         });
     }
 
-    public DivDoubleTest(double first, double second, double expected) {
-        this.first = first;
-        this.second = second;
-        this.expected = expected;
-    }
-
     @Test
-    public void FirstDivSecondDouble() {
+    public void firstDivSecondDouble() {
         double result = calc.div(first, second);
-        assertEquals(expected, result, 0.00005);
+        assertEquals("incorrect result Div", expected, result, 0.00005);
 
     }
 }

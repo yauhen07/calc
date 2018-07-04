@@ -14,25 +14,26 @@ public class SinDoubleTest extends BaseTestJunit {
     private double first;
     private double expected;
 
+    public SinDoubleTest(double first, double expected) {
+        this.first = first;
+        this.expected = expected;
+    }
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
                 {0.0, 0.0},
                 {45.0, 0.707},
                 {60.0, 0.866},
-                {-90, 1.0}
+                {-90.0, -1.0},
+                {-65.5, -0.91},
         });
     }
 
-    public SinDoubleTest(double first, double expected) {
-        this.first = first;
-        this.expected = expected;
-    }
-
     @Test
-    public void FirstSinDouble() {
-        double result = calc.sin(first);
-        assertEquals(expected, result, 0.00005);
+    public void firstSinDouble() {
+        double result = calc.sin(Math.toRadians(first));
+        assertEquals("incorrect result Sin", expected, result, 0.005);
 
     }
 }

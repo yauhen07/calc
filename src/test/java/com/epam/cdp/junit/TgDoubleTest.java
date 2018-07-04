@@ -14,6 +14,11 @@ public class TgDoubleTest extends BaseTestJunit {
     private double first;
     private double expected;
 
+    public TgDoubleTest(double first, double expected) {
+        this.first = first;
+        this.expected = expected;
+    }
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
@@ -24,16 +29,11 @@ public class TgDoubleTest extends BaseTestJunit {
 
         });
     }
-
-    public TgDoubleTest(double first, double expected) {
-        this.first = first;
-        this.expected = expected;
-    }
-
+    //Tests failed as method used method cos(double a) which is return incorrect values
     @Test
-    public void FirstTgDouble() {
-        double result = calc.tg(first);
-        assertEquals(expected, result, 0.00005);
+    public void firstTgDouble() {
+        double result = calc.tg(Math.toRadians(first));
+        assertEquals("incorrect result Tg", expected, result, 0.00005);
 
     }
 }

@@ -15,6 +15,12 @@ public class SubDoubleTest extends BaseTestJunit {
     private double second;
     private double expected;
 
+    public SubDoubleTest(double first, double second, double expected) {
+        this.first = first;
+        this.second = second;
+        this.expected = expected;
+    }
+
     @Parameterized.Parameters
     public static Collection data() {
         return Arrays.asList(new Object[][]{
@@ -29,17 +35,10 @@ public class SubDoubleTest extends BaseTestJunit {
         });
     }
 
-    public SubDoubleTest(double first, double second, double expected) {
-        this.first = first;
-        this.second = second;
-        this.expected = expected;
-    }
-
-
     @Test
-    public void FirstMinusSecondDouble() {
+    public void firstMinusSecondDouble() {
         double result = calc.sub(first, second);
-        assertEquals(expected, result, 0.00005);
+        assertEquals("incorrect result Sub", expected, result, 0.00005);
     }
 
 
